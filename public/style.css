@@ -33,6 +33,9 @@ button:focus, input:focus {
     opacity: 0
 }
 
+.searchbar, .product, .product-image
+{ border: 1px solid #E9E9E9; }
+
 /* Sections */
 
 html, body {
@@ -98,7 +101,6 @@ h1 {
 .searchbar > input {
     padding: 5px;
     font-size: 1.3rem;
-    border: 1px solid #E9E9E9;
     border-right: none;
 }
 
@@ -128,7 +130,6 @@ h1 {
 
 .product {
     padding: 1rem;
-    border: 1px solid #E9E9E9;
     border-radius: 2px;
     overflow: auto;
     margin: 1rem 1rem 1rem 0;
@@ -152,7 +153,6 @@ h1 {
     max-height: 150px;
     width: 250px;
     overflow: hidden;
-    border: 1px solid #E9E9E9;
     border-radius: 2px;
 }
 
@@ -172,7 +172,7 @@ h1 {
 
 #product-list-bottom {
     text-align: center;
-    color: #AAAAAA;
+    color: #AAA;
     font-size: 0.85rem;
 }
 
@@ -185,6 +185,11 @@ h1 {
 
 .cart .empty-cart {
     padding-top: 1rem;
+}
+
+.cart .total {
+    font-size: 1.2em;
+    color: #F08080;
 }
 
 .cart > h2 {
@@ -202,7 +207,9 @@ h1 {
 
 .cart ul li {
     vertical-align: top;
-    padding: 1rem 1rem 1rem 0;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #dadada;
 }
 
 .cart ul .cart-item {
@@ -210,7 +217,7 @@ h1 {
 }
 
 .cart ul .cart-item .item-title {
-
+    color: #F08080;
 }
 
 .cart ul .cart-item .item-price {
