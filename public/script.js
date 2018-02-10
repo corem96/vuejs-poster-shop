@@ -2,29 +2,23 @@ new Vue({
     el: '#app',
     data: {
         total: 0,
-        items: [
-            { 
-                id: 1,
-                title: 'Poster A',
-                price: 5.50
-            },
-            { 
-                id: 2,
-                title: 'Poster B',
-                price: 10
-            },
-            { 
-                id: 3,
-                title: 'Poster C',
-                price: 7.50
-            }
-        ],
+        items: [],
         cart: [],
-        search: ''
+        search: '',
+        lastSearch: '',
+        loading: false
     },
     methods: {
         onSubmit: function() {
-            console.log(this.search);
+            this.items = [];
+            this.loading = true;
+            this.$http
+                .get('/search/'.concat(this.search))
+                .then(function(res){
+                    this.lastSearch = this.search;
+                    this.items = res.data;
+                    this.loading = false;
+                });
         },
         addItem: function(index) {
             let item = this.items[index];

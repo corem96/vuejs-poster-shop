@@ -36,6 +36,12 @@ button:focus, input:focus {
 .searchbar, .product, .product-image
 { border: 1px solid #E9E9E9; }
 
+/* General colors */
+
+.sp-red { color: #DD5353 }
+.sp-teal { color: #2cac85 }
+.sp-sea { color: #2b6ab3 }
+
 /* Sections */
 
 html, body {
@@ -101,11 +107,18 @@ h1 {
 .searchbar > input {
     padding: 5px;
     font-size: 1.3rem;
+    border: 1px solid #AAA;
+    border-right: none;
+    border-radius: 2px;
+}
+
+.searchbar > input:focus {
+    border: 1px solid #DD5353;
     border-right: none;
 }
 
 .searchbar > input[type=submit] {
-    background-color: black;
+    background-color: #DD5353;
     padding: 1rem;
     border: none;
     border-radius: 2px;
