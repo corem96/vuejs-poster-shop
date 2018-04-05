@@ -9,13 +9,14 @@ button:focus, input:focus {
 }
 
 .btn {
-    background-color: #F08080;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
     border-radius: 2px;
     color: white;
-    user-select: none;
     border: none;
-    cursor: pointer;
     opacity: 1;
+    background-color: #F08080;
 }
 
 .btn:active {
@@ -163,8 +164,8 @@ h1 {
 }
 
 .product-image {
-    max-height: 150px;
-    width: 250px;
+    max-height: 2500px;
+    width: auto;
     overflow: hidden;
     border-radius: 2px;
 }
