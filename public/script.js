@@ -1,12 +1,15 @@
+var PRICE = 9.90;
+
 new Vue({
     el: '#app',
     data: {
         total: 0,
         items: [],
         cart: [],
-        search: '',
+        search: 'landscape',
         lastSearch: '',
-        loading: false
+        loading: false,
+        price: PRICE
     },
     methods: {
         onSubmit: function() {
@@ -21,10 +24,11 @@ new Vue({
                 });
         },
         addItem: function(index) {
-            let item = this.items[index];
-            let found = false;
+            this.total += PRICE;
+            var item = this.items[index];
+            var found = false;
             
-            for (let i = 0; i < this.cart.length; i++) {
+            for (var i = 0; i < this.cart.length; i++) {
                 if (this.cart[i].id === item.id) {
                     this.cart[i].qty++;
                     found = true;
@@ -32,15 +36,14 @@ new Vue({
             }
             
             if(!found){
+                
                 this.cart.push({
                     id: item.id,
                     title: item.title,
-                    price: item.price,
+                    price: PRICE,
                     qty: 1
                 });
             }
-            
-            this.total += item.price;
         },
 
         inc: function(item) {
@@ -63,7 +66,10 @@ new Vue({
     },
     filters: {
         currency: function(price) {
-            return '$' . concat(price.toFixed(2));
+            return '$'.concat(price.toFixed(2));
         }
+    },
+    mounted: function() {
+        this.onSubmit();
     }
 });
