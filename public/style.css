@@ -164,7 +164,7 @@ h1 {
 }
 
 .product-image {
-    max-height: 2500px;
+    max-width: 350px;
     width: auto;
     overflow: hidden;
     border-radius: 2px;

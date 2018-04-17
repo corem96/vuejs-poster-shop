@@ -1,4 +1,5 @@
 var PRICE = 9.90;
+var LOAD_NUM = 10;
 
 new Vue({
     el: '#app',
@@ -6,12 +7,16 @@ new Vue({
         total: 0,
         items: [],
         cart: [],
+        results: [],
         search: 'landscape',
         lastSearch: '',
         loading: false,
         price: PRICE
     },
     methods: {
+        appendItems: function(){
+            console.log('appendItems')
+        },
         onSubmit: function() {
             this.items = [];
             this.loading = true;
@@ -19,7 +24,8 @@ new Vue({
                 .get('/search/'.concat(this.search))
                 .then(function(res){
                     this.lastSearch = this.search;
-                    this.items = res.data;
+                    this.results = res.data;
+                    this.items = res.data.slice(0, LOAD_NUM);
                     this.loading = false;
                 });
         },
@@ -71,5 +77,12 @@ new Vue({
     },
     mounted: function() {
         this.onSubmit();
+
+        var vueInstance = this;
+        var elem = document.getElementById('product-list-bottom');
+        var watcher = scrollMonitor.create(elem);
+        watcher.enterViewport(function () {
+            vueInstance.appendItems();
+        });
     }
 });
